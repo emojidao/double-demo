@@ -1,0 +1,33 @@
+{
+  "name": "harhat-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deployDCL": "npx hardhat run scripts/deploy.js --network rinkeby",
+    "verify": "npx hardhat run scripts/verify.js --network rinkeby",
+    "testRead": "npx hardhat run scripts/testRead.js",
+    "setApproveForAll": "npx hardhat run scripts/trump_setApproveForAll.js",
+    "autoTest": "npx hardhat run scripts/autoTest.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hardhat": "^2.8.0"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.3",
+    "@nomiclabs/hardhat-etherscan": "^2.1.8",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^4.4.1",
+    "big-integer": "^1.6.51",
+    "bignumber": "^1.1.0",
+    "chai": "^4.3.4",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.5.2",
+    "hardhat-gas-reporter": "^1.0.6"
+  }
+}
