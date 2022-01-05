@@ -12,5 +12,5 @@ const rinkebyKey =
 };
 
 3. run test：
-for excample :mint land，run in terminal：
-```npx hardhat run scripts/mint_land.js```
+for excample :run in terminal：
+```npx hardhat run scripts/1_mintWNft.js```
