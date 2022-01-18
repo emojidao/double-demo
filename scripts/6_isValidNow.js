@@ -1,20 +1,15 @@
-const { wellet } = require("../config");
-const {  doREVVM, REVVM } = require("./contracts");
+const {  doLand } = require("./contracts");
 
 async function main() {
 
-  let carTokenId = '57910179610855904350512198746766089094720102495044069356670909012675387196134';
-  let tokenId = await getWNftId(carTokenId);
-  let bool = await doREVVM().isValidNow(tokenId);
-  console.log(tokenId," : ",bool);
+  let landId = '340282366920938463463374607431768211458';
+  let tokenId = await doLand().getXNftId(landId);
+  let bool = await doLand().isValidNow(tokenId);
+  console.log(tokenId.toString()," : ",bool);
 
   tokenId = 2;
-  bool = await doREVVM().isValidNow(tokenId);
+  bool = await doLand().isValidNow(tokenId);
   console.log(tokenId," : ",bool);
-
-  let user = await doREVVM().getUser(1);
-  console.log(tokenId,".user : ",user);
-
 }
 
 main()

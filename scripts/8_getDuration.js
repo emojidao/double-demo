@@ -1,16 +1,15 @@
-const { wellet } = require("../config");
-const {  doREVVM, REVVM } = require("./contracts");
+const {  doLand } = require("./contracts");
 
 async function main() {
 
-  let tokenId = 1;
-  let idList = await doREVVM().getDurationIdList(tokenId);
+  let tokenId = 2;
+  let idList = await doLand().getDurationIdList(tokenId);
   console.log("idList : ",idList);
 
-  let duration = await doREVVM().getDuration(1);
+  let duration = await doLand().getDuration(1);
   console.log("duration : ",duration);
 
-  duration = await doREVVM().getDurationByIndex(tokenId,0);
+  duration = await doLand().getDurationByIndex(tokenId,0);
   console.log("duration : ",duration);
 
 }

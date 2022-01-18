@@ -1,36 +1,27 @@
-const { wellet } = require("../config");
-const { REVVM_ABI, doREVVM_ABI } = require("./abi");
-const { DO_REVVM_ADDRESS, REVVM_ADDRESS } = require("./address");
+const { ethers } = require("ethers");
+const { wallet } = require("../config");
+const { DONFT_ABI } = require("./abi");
+const { DONFT_ESTATE, DONFT_LAND } = require("./address");
 
-const matic = {
-    name: 'matic',
-    chainId: 137,
-    _defaultProvider: (providers) => new providers.JsonRpcProvider('https://polygon-rpc.com')
+const bsct = {
+    name: 'bsct',
+    chainId: 97,
+    _defaultProvider: (providers) => new providers.JsonRpcProvider('https://data-seed-prebsc-1-s1.binance.org:8545')
 }
 
 // Connect to the network
-var provider = ethers.getDefaultProvider(matic);
-var wallet = new ethers.Wallet(wellet.admin_private_key, provider);
+var provider = ethers.getDefaultProvider(bsct);
+var wallet_test = new ethers.Wallet(wallet.admin_private_key, provider);
 
-var _REVVM;
-function REVVM() {
-    if (!_REVVM) {
-        let contract = new ethers.Contract(REVVM_ADDRESS, REVVM_ABI, provider);
-        _REVVM = contract.connect(wallet);
+var _doLand;
+function doLand() {
+    if (!_doLand) {
+        let contract = new ethers.Contract(DONFT_LAND, DONFT_ABI, provider);
+        _doLand = contract.connect(wallet_test);
     }
-    return _REVVM
-}
-
-var _doREVVM;
-function doREVVM() {
-    if (!_doREVVM) {
-        let contract = new ethers.Contract(DO_REVVM_ADDRESS, doREVVM_ABI, provider);
-        _doREVVM = contract.connect(wallet);
-    }
-    return _doREVVM
+    return _doLand
 }
 
 module.exports = {
-    REVVM ,
-    doREVVM 
+    doLand 
 }

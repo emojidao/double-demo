@@ -1,5 +1,5 @@
-const { wellet } = require("../config");
-const {  doREVVM, REVVM } = require("./contracts");
+const { wallet } = require("../config");
+const { doLand } = require("./contracts");
 
 async function main() {
 
@@ -9,7 +9,7 @@ async function main() {
   let timeStamp = Date.now();
   let startTime = timeStamp;
   let endTime = Math.floor(timeStamp/1000 + 60);
-  tx = await doREVVM().mint(tokenId,durationId,startTime,endTime,wellet.admin_address);
+  tx = await doLand().mint(tokenId,durationId,startTime,endTime,wallet.admin_address);
   console.log("mint tx.hash",tx.hash);
   await tx.wait();
 

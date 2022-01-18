@@ -1,14 +1,14 @@
-const { wellet } = require("../config");
-const {  doREVVM, REVVM } = require("./contracts");
+const { wallet } = require("../config");
+const {  doLand } = require("./contracts");
 
 async function main() {
 
   let idArray = [];
-  let total = await doREVVM().balanceOf(wellet.admin_address);
-  console.log("total = " ,total);
+  let total = await doLand().balanceOf(wallet.admin_address);
+  console.log("total = " ,total.toString());
   for (let index = 0; index < total; index++) {
-    let id = await doREVVM().tokenOfOwnerByIndex(wellet.admin_address,index);
-    idArray.push(id);
+    let id = await doLand().tokenOfOwnerByIndex(wallet.admin_address,index);
+    idArray.push(id.toString());
   }
   console.log("idArray:",idArray);
 

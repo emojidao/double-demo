@@ -1,10 +1,9 @@
-const { wellet } = require("../config");
-const {  doREVVM, REVVM } = require("./contracts");
+const {  doLand } = require("./contracts");
 
 async function main() {
 
-  let tokenId = 1;
-  let info = await doREVVM().getDoNftInfo(tokenId);
+  let tokenId = 2;
+  let info = await doLand().getDoNftInfo(tokenId);
   console.log("info : ",info);
 
 }
