@@ -10,7 +10,7 @@ async function main() {
   let duration = await doREVVM().getDuration(1);
   console.log("duration : ",duration);
 
-  duration = await doREVVM().getDuration(tokenId,0);
+  duration = await doREVVM().getDurationByIndex(tokenId,0);
   console.log("duration : ",duration);
 
 }
